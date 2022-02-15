@@ -1,6 +1,7 @@
 package com.gateway.storage.ssp.controller;
 
 import java.net.URI;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.validation.Valid;
@@ -27,8 +28,9 @@ public class EndpointTotem {
 
     @GetMapping
     public String getGatewayTotem() {
-        Date date = new Date();        
-        return "Return from Totem Endpoint - " + date;
+        Date date = new Date();
+        SimpleDateFormat dateForm = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.sss");       
+        return "Return from Totem Endpoint at " + dateForm.format(date);
     }
 
     @PostMapping 
