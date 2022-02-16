@@ -11,6 +11,7 @@ import com.gateway.storage.ssp.services.GatewayService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +27,7 @@ public class EndpointTotem {
     @Autowired
     private GatewayService gatewayStorageService;
 
+    @CrossOrigin
     @GetMapping
     public String getGatewayTotem() {
         Date date = new Date();
@@ -33,6 +35,7 @@ public class EndpointTotem {
         return "Return from Totem Endpoint at " + dateForm.format(date);
     }
 
+    @CrossOrigin
     @PostMapping 
     public ResponseEntity<TotemPacket> toPacketStoragee(@Valid @RequestBody TotemPacket totemPacket)
     {   
